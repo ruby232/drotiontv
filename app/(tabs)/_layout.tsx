@@ -40,7 +40,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Today',
           tabBarButton,
           tabBarLabelStyle: textStyles.default,
           tabBarIcon: ({ color, focused }) => (
@@ -54,7 +54,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
+          title: 'All Videos',
           tabBarButton,
           tabBarLabelStyle: textStyles.default,
           tabBarIcon: ({ color, focused }) => (
@@ -68,7 +68,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="tv_focus"
         options={{
-          title: 'TV event demo',
+          title: 'Calendar',
           tabBarButton,
           tabBarLabelStyle: textStyles.default,
           tabBarIcon: ({ color, focused }) => (

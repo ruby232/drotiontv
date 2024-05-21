@@ -33,6 +33,12 @@
       "typedRoutes": true
     },
     "name": "DrotionTV",
-    "slug": "DrotionTV"
+    "slug": "DrotionTV",
+    "android": {
+      "package": "com.onebyt.drotiontv"
+    },
+    "ios": {
+      "bundleIdentifier": "com.onebyt.drotiontv"
+    }
   }
 }

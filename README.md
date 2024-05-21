@@ -1,4 +1,28 @@
-# Expo Router TV demo 👋
+# DrotionTV
+
+## Open emulator
+```shell
+. {$ANDROID_HOME}/emulator/emulator -list-avds
+. {$ANDROID_HOME}/emulator/emulator -avd Television_720p_API_34
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ![Apple TV screen shot](https://github.com/douglowder/examples/assets/6577821/a881466f-a7a0-4c66-b1fc-33235c466997)
 ![Android TV screen shot](https://github.com/douglowder/examples/assets/6577821/815c8e01-8275-4cc1-bd57-b9c8bce1fb02) 
