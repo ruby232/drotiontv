@@ -6,6 +6,8 @@
 {$ANDROID_HOME}/emulator/emulator -avd Television_720p_API_34
 ```
 
+
+
 ## Build in local
 ```shell
 eas build --platform android --local
@@ -13,10 +15,22 @@ eas build --platform android --local
 
 ## Build online
 ```shell
-eas build -p android --profile preview
+eas build --profile preview --platform android
+```
+
+## Build new version
+```shell
+eas build --platform android
+``` 
+
+
+## Run un emulator
+```shell
 ```
 
 
+## Icon list
+https://icons.expo.fyi/Index
 
 
 
