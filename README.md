@@ -28,10 +28,11 @@ eas build --platform android
 ```shell
 ```
 
-
 ## Icon list
 https://icons.expo.fyi/Index
 
+## Informacion sobre los ota
+https://pagepro.co/blog/ota-updates-with-expo/
 
 
 
