@@ -51,34 +51,6 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'All Videos',
-          tabBarButton,
-          tabBarLabelStyle: textStyles.default,
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? 'code-slash' : 'code-slash-outline'}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="tv_focus"
-        options={{
-          title: 'Calendar',
-          tabBarButton,
-          tabBarLabelStyle: textStyles.default,
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? 'code-slash' : 'code-slash-outline'}
-              color={color}
-            />
-          ),
-        }}
-      />
     </Tabs>
   );
 }

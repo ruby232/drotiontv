@@ -39,6 +39,14 @@
     },
     "ios": {
       "bundleIdentifier": "com.onebyt.drotiontv"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "52535bcc-9a27-4fa2-b4fb-b4a1b29dcfab"
+      }
     }
   }
 }
