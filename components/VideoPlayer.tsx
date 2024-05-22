@@ -1,17 +1,27 @@
 import {Button, StyleSheet, View, Text} from "react-native";
-import {Video, ResizeMode} from "expo-av";
+import {Video, ResizeMode, AVPlaybackStatus} from "expo-av";
 import * as React from "react";
 import {useScale} from "@/hooks/useScale";
 
 interface VideoPlayerProps {
     uri: string;
     title: string;
+    onFinish: (event: string) => void;
+    autoPlay?: boolean;
 }
 
-export default function VideoPlayer({uri, title}: VideoPlayerProps) {
+export default function VideoPlayer({uri, title, onFinish, autoPlay}: VideoPlayerProps) {
     const styles = useVideoStyles();
     const videoRef  = React.useRef(null);
     const [status, setStatus] = React.useState({});
+
+    const onPlaybackStatusUpdate = (playbackStatus: AVPlaybackStatus) => {
+        setStatus(playbackStatus);
+        if (playbackStatus.isLoaded && playbackStatus.didJustFinish){
+            onFinish('finish');
+        }
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.videoContainer}>
@@ -22,9 +32,9 @@ export default function VideoPlayer({uri, title}: VideoPlayerProps) {
                         uri: uri,
                     }}
                     useNativeControls
+                    shouldPlay={autoPlay}
                     resizeMode={ResizeMode.CONTAIN}
-                    isLooping
-                    onPlaybackStatusUpdate={status => setStatus(() => status)}/>
+                    onPlaybackStatusUpdate= {onPlaybackStatusUpdate} />
                 <View style={styles.buttons}>
                     <Button
                         title={status.isPlaying ? 'Pause' : 'Play'}

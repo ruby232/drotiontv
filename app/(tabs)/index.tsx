@@ -7,25 +7,39 @@ import {useScale} from "@/hooks/useScale";
 
 export default function HomeScreen() {
     const styles = useHomeScreenStyles();
-    const [data, setData] = useState(null);
-    const [dataLoaded, setDataLoaded] = useState(false);
+    const [session, setSession] = useState(null);
+    const [sessionPos, setSessionPos] = useState(0);
+    const [sessions, setSessions] = useState(null);
+    const [autoplay, setAutoplay] = useState(false);
 
     useEffect(() => {
         fetch('https://drotion.onebyt.com/api/v1/session-today')
             .then(response => response.json())
             .then((sessions) => {
-                    console.log(sessions[0]);
-                    setData(sessions[0]);
-                    setDataLoaded(true);
+                    setSessions(sessions);
+                    if (sessions.length > 0) {
+                        setSession(sessions[0]);
+                    }
                 }
             )
             .catch(error => console.error(error));
     }, []);
 
+    const onVideoFinish = (event: string) => {
+        if (sessions && sessions.length > sessionPos + 1) {
+            const nextSession = sessions[sessionPos + 1];
+                setSession(nextSession);
+                setAutoplay(true);
+        }
+    };
+
     return <View style={styles.container}>
-        {dataLoaded ? (
-            <VideoPlayer uri={data.url}
-                         title={data.title}/>
+        {session ? (
+            <VideoPlayer uri={session.url}
+                         title={session.title}
+                         onFinish={onVideoFinish}
+                            autoPlay={autoplay}
+            />
         ) : (<Text>Cargando datos</Text>)}
     </View>;
 }
