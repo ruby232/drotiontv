@@ -14,12 +14,12 @@ interface VideoPlayerProps {
 
 export default function VideoPlayer({uri, title, onFinish, autoPlay, onReload}: VideoPlayerProps) {
     const styles = useVideoStyles();
-    const videoRef  = React.useRef(null);
+    const videoRef = React.useRef(null);
     const [status, setStatus] = React.useState({});
 
     const onPlaybackStatusUpdate = (playbackStatus: AVPlaybackStatus) => {
         setStatus(playbackStatus);
-        if (playbackStatus.isLoaded && playbackStatus.didJustFinish){
+        if (playbackStatus.isLoaded && playbackStatus.didJustFinish) {
             onFinish('finish');
         }
     };
@@ -48,7 +48,7 @@ export default function VideoPlayer({uri, title, onFinish, autoPlay, onReload}: 
                     useNativeControls
                     shouldPlay={autoPlay}
                     resizeMode={ResizeMode.CONTAIN}
-                    onPlaybackStatusUpdate= {onPlaybackStatusUpdate} />
+                    onPlaybackStatusUpdate={onPlaybackStatusUpdate}/>
                 <View style={styles.buttons}>
                     <FontAwesome6.Button
                         backgroundColor='transparent'
@@ -72,7 +72,7 @@ export default function VideoPlayer({uri, title, onFinish, autoPlay, onReload}: 
                         onPress={() => onReload('reload')}/>
                 </View>
             </View>
-            <Text style={styles.title}>{ title }</Text>
+            <Text style={styles.title}>{title}</Text>
         </View>
     );
 }
@@ -97,6 +97,7 @@ const useVideoStyles = function () {
             width: '100%',
             flexDirection: 'row',
             justifyContent: 'center',
+            backgroundColor: 'rgba(255,255,255,0.5)'
         },
         title: {
             textAlign: 'center',

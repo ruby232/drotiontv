@@ -15,7 +15,7 @@ eas build --platform android --local
 
 ## Build online
 ```shell
-eas build --profile preview --platform android
+eas build --profile preview_tv --platform android
 ```
 
 ## Build new version

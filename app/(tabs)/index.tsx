@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useEffect, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import VideoPlayer from "@/components/VideoPlayer";
 import {useScale} from "@/hooks/useScale";
 
@@ -53,7 +53,11 @@ export default function HomeScreen() {
                          autoPlay={autoplay}
                          onReload={onReload}
             />
-        ) : (<Text>Cargando datos</Text>)}
+        ) : (
+            <View style={[styles.container, styles.horizontal]}>
+                <ActivityIndicator size="large" color="#0000ff"/>
+            </View>
+        )}
     </View>;
 }
 
@@ -64,6 +68,12 @@ const useHomeScreenStyles = function () {
             width: '100%',
             flex: 1,
             paddingTop: 20 * scale,
+            justifyContent: 'center',
+        },
+        horizontal: {
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            padding: 10,
         }
     });
 };

@@ -11,8 +11,8 @@ export default function AboutScreen() {
 
     return <View style={styles.container}>
         <Text>About Screen</Text>
-        <Text>Version {Application.nativeApplicationVersion}</Text>
-        <Text>Version {Application.nativeBuildVersion}</Text>
+        <Text>Application Version: {Application.nativeApplicationVersion}</Text>
+        <Text>Build Version: {Application.nativeBuildVersion}</Text>
     </View>;
 }
 
@@ -22,7 +22,8 @@ const useAboutScreenStyles = function () {
         container: {
             width: '100%',
             flex: 1,
-            paddingTop: 20 * scale,
+            justifyContent: 'center',
+            paddingStart: 50 * scale,
         }
     });
 };
