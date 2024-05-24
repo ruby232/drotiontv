@@ -4,24 +4,14 @@
       [
         "@react-native-tvos/config-tv",
         {
-          "androidTVBanner": "./assets/tv_icons/icon-400x240.png",
-          "appleTVImages": {
-            "icon": "./assets/tv_icons/icon-1280x768.png",
-            "iconSmall": "./assets/tv_icons/icon-400x240.png",
-            "iconSmall2x": "./assets/tv_icons/icon-800x480.png",
-            "topShelf": "./assets/tv_icons/icon-1920x720.png",
-            "topShelf2x": "./assets/tv_icons/icon-3840x1440.png",
-            "topShelfWide": "./assets/tv_icons/icon-2320x720.png",
-            "topShelfWide2x": "./assets/tv_icons/icon-4640x1440.png"
-          }
+          "isTV": true,
+          "androidTVRequired": true,
+          "androidTVBanner": "./assets/tv_icons/mipmap-hdpi/ic_banner.png"
         }
       ],
       [
         "expo-build-properties",
         {
-          "ios": {
-            "newArchEnabled": false
-          },
           "android": {
             "newArchEnabled": false
           }
@@ -37,9 +27,6 @@
     "android": {
       "package": "com.onebyt.drotiontv"
     },
-    "ios": {
-      "bundleIdentifier": "com.onebyt.drotiontv"
-    },
     "extra": {
       "router": {
         "origin": false
@@ -53,6 +40,12 @@
     },
     "updates": {
       "url": "https://u.expo.dev/52535bcc-9a27-4fa2-b4fb-b4a1b29dcfab"
+    },
+    "icon": "./assets/tv_icons/mipmap-hdpi/ic_launcher.png",
+    "splash": {
+      "image": "./assets/tv_icons/mipmap-xxxhdpi/ic_banner.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#25292e"
     }
   }
 }

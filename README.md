@@ -26,6 +26,7 @@ eas build --platform android
 
 ## Run un emulator
 ```shell
+npx expo run:android
 ```
 
 ## Icon list
