@@ -4,7 +4,6 @@ import {StyleSheet, Text, View} from 'react-native';
 import VideoPlayer from "@/components/VideoPlayer";
 import {useScale} from "@/hooks/useScale";
 
-
 export default function HomeScreen() {
     const styles = useHomeScreenStyles();
     const [session, setSession] = useState(null);
@@ -13,6 +12,15 @@ export default function HomeScreen() {
     const [autoplay, setAutoplay] = useState(false);
 
     useEffect(() => {
+        loadData();
+    }, []);
+
+    const loadData = () => {
+        setSessions(null);
+        setSession(null);
+        setSessionPos(0);
+        setAutoplay(false);
+
         fetch('https://drotion.onebyt.com/api/v1/session-today')
             .then(response => response.json())
             .then((sessions) => {
@@ -23,22 +31,27 @@ export default function HomeScreen() {
                 }
             )
             .catch(error => console.error(error));
-    }, []);
-
+    }
     const onVideoFinish = (event: string) => {
         if (sessions && sessions.length > sessionPos + 1) {
             const nextSession = sessions[sessionPos + 1];
-                setSession(nextSession);
-                setAutoplay(true);
+            setSession(nextSession);
+            setAutoplay(true);
         }
     };
+
+    const onReload = (event: string) => {
+        loadData();
+    }
+
 
     return <View style={styles.container}>
         {session ? (
             <VideoPlayer uri={session.url}
                          title={session.title}
                          onFinish={onVideoFinish}
-                            autoPlay={autoplay}
+                         autoPlay={autoplay}
+                         onReload={onReload}
             />
         ) : (<Text>Cargando datos</Text>)}
     </View>;

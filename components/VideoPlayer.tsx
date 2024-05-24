@@ -2,15 +2,17 @@ import {Button, StyleSheet, View, Text} from "react-native";
 import {Video, ResizeMode, AVPlaybackStatus} from "expo-av";
 import * as React from "react";
 import {useScale} from "@/hooks/useScale";
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 interface VideoPlayerProps {
     uri: string;
     title: string;
     onFinish: (event: string) => void;
+    onReload: (event: string) => void;
     autoPlay?: boolean;
 }
 
-export default function VideoPlayer({uri, title, onFinish, autoPlay}: VideoPlayerProps) {
+export default function VideoPlayer({uri, title, onFinish, autoPlay, onReload}: VideoPlayerProps) {
     const styles = useVideoStyles();
     const videoRef  = React.useRef(null);
     const [status, setStatus] = React.useState({});
@@ -21,6 +23,18 @@ export default function VideoPlayer({uri, title, onFinish, autoPlay}: VideoPlaye
             onFinish('finish');
         }
     };
+
+    const onPlay = () => {
+        status.isPlaying ? videoRef.current.pauseAsync() : videoRef.current.playAsync()
+    }
+
+    const onMaximize = () => {
+        videoRef.current.presentFullscreenPlayer()
+    }
+
+    const onRestart = () => {
+        videoRef.current.setStatusAsync({shouldPlay: true, positionMillis: 0})
+    }
 
     return (
         <View style={styles.container}>
@@ -36,24 +50,26 @@ export default function VideoPlayer({uri, title, onFinish, autoPlay}: VideoPlaye
                     resizeMode={ResizeMode.CONTAIN}
                     onPlaybackStatusUpdate= {onPlaybackStatusUpdate} />
                 <View style={styles.buttons}>
-                    <Button
-                        title={status.isPlaying ? 'Pause' : 'Play'}
-                        onPress={() =>
-                            status.isPlaying ? videoRef.current.pauseAsync() : videoRef.current.playAsync()
-                        }
-                    />
-                    <Button
-                        title='Fullscreen'
-                        onPress={() =>
-                            videoRef.current.presentFullscreenPlayer()
-                        }
-                    />
-                    <Button
-                        title='Start againt'
-                        onPress={() =>
-                            videoRef.current.setStatusAsync({ shouldPlay: true, positionMillis: 0 })
-                        }
-                    />
+                    <FontAwesome6.Button
+                        backgroundColor='transparent'
+                        name={status.isPlaying ? 'pause' : 'play'}
+                        size={24}
+                        onPress={onPlay}/>
+                    <FontAwesome6.Button
+                        backgroundColor='transparent'
+                        size={24}
+                        name="maximize"
+                        onPress={onMaximize}/>
+                    <FontAwesome6.Button
+                        backgroundColor='transparent'
+                        size={24}
+                        name="stop"
+                        onPress={onRestart}/>
+                    <FontAwesome6.Button
+                        backgroundColor='transparent'
+                        size={24}
+                        name="rotate-right"
+                        onPress={() => onReload('reload')}/>
                 </View>
             </View>
             <Text style={styles.title}>{ title }</Text>

@@ -46,6 +46,9 @@
       "image": "./assets/tv_icons/mipmap-xxxhdpi/ic_banner.png",
       "resizeMode": "contain",
       "backgroundColor": "#25292e"
+    },
+    "ios": {
+      "bundleIdentifier": "com.onebyt.drotiontv"
     }
   }
 }
