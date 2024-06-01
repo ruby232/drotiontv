@@ -38,6 +38,20 @@ export default function TabLayout() {
             }}
         >
             <Tabs.Screen
+                name="countdown"
+                options={{
+                    title: 'Countdown',
+                    tabBarButton,
+                    tabBarLabelStyle: textStyles.default,
+                    tabBarIcon: ({color, focused}) => (
+                        <TabBarIcon
+                            name={focused ? 'timer' : 'timer-outline'}
+                            color={color}
+                        />
+                    ),
+                }}
+            />
+            <Tabs.Screen
                 name="index"
                 options={{
                     title: 'Today',
