@@ -9,13 +9,8 @@ export default function CountdownScreen() {
     return <View style={styles.container}>
         <Countdown
             until={11 * 24 * 60 * 60 + 12 * 60 * 60 + 56 * 60 + 28}
-            // digitStyle={styles.digitStyle}
-            // digitTxtStyle={styles.digitTxtStyle}
-            // timeLabelStyle={styles.timeLabelStyle}
-            // separatorStyle={styles.separatorStyle}
             timeToShow={['D', 'H', 'M', 'S']}
             timeLabels={{d: 'días', h: 'horas', m: 'min', s: 'seg'}}
-            // showSeparator
             size={100}
         />
     </View>;
@@ -28,23 +23,6 @@ const useAboutScreenStyles = function () {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-            // backgroundColor: '#4a4848',
-        },
-        digitStyle: {
-            backgroundColor: '#333',
-            borderWidth: 2,
-            borderColor: '#fff',
-        },
-        digitTxtStyle: {
-            color: '#fff',
-            fontSize: 20,
-        },
-        timeLabelStyle: {
-            color: '#fff',
-            fontSize: 12,
-        },
-        separatorStyle: {
-            color: '#fff',
-        },
+        }
     });
 };
