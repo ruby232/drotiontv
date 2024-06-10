@@ -6,9 +6,15 @@ import Countdown from 'react-native-countdown-component';
 export default function CountdownScreen() {
     const styles = useAboutScreenStyles();
 
+    // Cantidad de segundos desde la fecha actual al 12 de junio del 2024 a las 22:00:00
+    const now = new Date();
+    const futureDate = new Date(2024, 5, 12, 22, 0, 0);
+    let diffInMilliseconds = futureDate.getTime() - now.getTime();
+    let diffInSeconds = diffInMilliseconds / 1000;
+
     return <View style={styles.container}>
         <Countdown
-            until={11 * 24 * 60 * 60 + 12 * 60 * 60 + 56 * 60 + 28}
+            until={diffInSeconds}
             timeToShow={['D', 'H', 'M', 'S']}
             timeLabels={{d: 'días', h: 'horas', m: 'min', s: 'seg'}}
             size={100}
