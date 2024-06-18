@@ -40,12 +40,12 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="countdown"
                 options={{
-                    title: 'Countdown',
+                    title: 'Max',
                     tabBarButton,
                     tabBarLabelStyle: textStyles.default,
                     tabBarIcon: ({color, focused}) => (
                         <TabBarIcon
-                            name={focused ? 'timer' : 'timer-outline'}
+                            name={focused ? 'gift' : 'gift-outline'}
                             color={color}
                         />
                     ),

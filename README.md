@@ -10,7 +10,7 @@
 
 ## Build in local
 ```shell
-eas build --platform android --local
+eas build --profile preview_tv --platform android --local
 ```
 
 ## Build online
