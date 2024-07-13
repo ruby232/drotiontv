@@ -38,14 +38,14 @@ export default function TabLayout() {
             }}
         >
             <Tabs.Screen
-                name="countdown"
+                name="yoga"
                 options={{
-                    title: 'Max',
+                    title: 'Yoga',
                     tabBarButton,
                     tabBarLabelStyle: textStyles.default,
                     tabBarIcon: ({color, focused}) => (
                         <TabBarIcon
-                            name={focused ? 'gift' : 'gift-outline'}
+                            name={focused ? 'body' : 'body-outline'}
                             color={color}
                         />
                     ),
@@ -54,31 +54,31 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Today',
+                    title: 'Exercises',
                     tabBarButton,
                     tabBarLabelStyle: textStyles.default,
                     tabBarIcon: ({color, focused}) => (
                         <TabBarIcon
-                            name={focused ? 'home' : 'home-outline'}
+                            name={focused ? 'walk' : 'walk-outline'}
                             color={color}
                         />
                     ),
                 }}
             />
-            <Tabs.Screen
-                name="about"
-                options={{
-                    title: 'About',
-                    tabBarButton,
-                    tabBarLabelStyle: textStyles.default,
-                    tabBarIcon: ({color, focused}) => (
-                        <TabBarIcon
-                            name={focused ? 'information-circle-sharp' : 'information-circle-outline'}
-                            color={color}
-                        />
-                    ),
-                }}
-            />
+            {/*<Tabs.Screen*/}
+            {/*    name="about"*/}
+            {/*    options={{*/}
+            {/*        title: 'About',*/}
+            {/*        tabBarButton,*/}
+            {/*        tabBarLabelStyle: textStyles.default,*/}
+            {/*        tabBarIcon: ({color, focused}) => (*/}
+            {/*            <TabBarIcon*/}
+            {/*                name={focused ? 'information-circle-sharp' : 'information-circle-outline'}*/}
+            {/*                color={color}*/}
+            {/*            />*/}
+            {/*        ),*/}
+            {/*    }}*/}
+            {/*/>*/}
         </Tabs>
     );
 }
